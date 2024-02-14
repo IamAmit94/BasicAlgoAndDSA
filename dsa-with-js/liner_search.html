@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+
+    <script>
+        // let data = [1, 33, 22, 45, 5, 33, 26, 55, 63, 25, 65];
+        // let pos = undefined;
+        // let find = 215;
+        // for (let i = 0; i < data.length; i++) {
+        //     if (data[i] === find) {
+        //         pos = i;
+        //         break;
+        //     }
+        // }
+        // console.warn(`found element with position`, pos , );
+        // if(!pos){
+        //     alert('Element Not found !')
+        // }
+
+        function searchEl() {
+            let data = [1, 33, 22, 45, 5, 33, 26, 55, 63, 25, 65];
+            let find = document.getElementById('el').value;
+            let pos = undefined;
+           
+            for (let i = 0; i < data.length; i++) {
+                if (data[i] == find) {
+                    pos = i;
+                    break;
+                }
+            }
+            console.warn(`welcome to css`);
+            if (!pos) {
+                alert('Element Not found !');
+            } else {
+                alert(`Found element with position ${pos}`);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Linear search</h1>
+    <input type="text" id="el" placeholder="Enter element to find">
+    <button onclick="searchEl()">Search Element</button>
+</body>
+
+</html>

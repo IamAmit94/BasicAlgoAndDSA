@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Recursive Binary Search</title>
+</head>
+<script>
+    let data = [1,3,6,14,25,46];
+    let start = 0;
+    let end = data.length-1;
+    let find = 14;
+    let position = undefined;
+
+
+    function recursiveBinary(data,s,e) {
+        let mid = Math.floor((s+e)/2);
+
+        if(data[mid] === find){
+            position =mid;
+            return true;
+        } else if (data[mid] < find){ 
+            recursiveBinary(data, mid+1,end)
+        }else{
+            recursiveBinary(data,start,mid-1)
+        }
+
+    }
+
+
+
+    recursiveBinary(data,start,end)
+
+    console.warn(position)
+
+
+</script>
+<body>
+    
+</body>
+</html>

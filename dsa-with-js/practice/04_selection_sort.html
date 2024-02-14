@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Selection Sort</title>
+    <script>
+        let items = [20, 12, 53, 2];
+
+        function selectionSort(data) {
+            // console.warn('data=====', data);
+
+            let minVal;
+            // for (let i = 0; i < data.length; i++) { // asending order
+            for (let i = data.length - 1; i >= 0; i--) { //desending order
+                minVal = i;
+                //    for (let j = i + 1; j < data.length; j++) {// asending order
+                for (let j = i - 1; j >= 0; j--) {  //desending order
+                    if (data[j] < data[minVal]) {
+                        minVal = j;
+                    }
+                }
+                let temp = data[minVal];
+                // console.log('temp----',temp);
+                data[minVal] = data[i];
+                // console.log('data[minVal]----',data[minVal]);
+                data[i] = temp;
+                // console.log('data[i] ----',data[i] );
+
+            }
+            console.log('sorted data----------', data)
+        }
+
+        selectionSort(items)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
