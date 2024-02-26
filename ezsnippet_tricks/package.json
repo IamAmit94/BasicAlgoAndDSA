@@ -1,0 +1,15 @@
+{
+  "name": "ezsnippet_tricks",
+  "version": "1.0.0",
+  "description": "1. self evoking function\r 2. chaining of function\r 3. FILTER [HIGH ORDER FUNCTION]\r 4. Cron job or schedular",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-cron": "^3.0.3"
+  }
+}

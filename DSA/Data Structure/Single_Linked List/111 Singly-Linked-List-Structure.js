@@ -15,7 +15,7 @@ class SinglyLinkedList{
         this.length = 0;
     }
     push(val){
-        
+          
     }
 }
 

@@ -30,7 +30,7 @@ const selectionSort = (array) => {
 
 const result = selectionSort([0, 2, 34, 22, 10, 19]);
 
-console.log(`result ===== `, result);
+console.log(`result =====> `, result);
 
 //  p
 // [0, 2, 34, 22, 10, 19]
