@@ -1,30 +1,35 @@
 // Maximum Sum Subarray of size K | Sliding Window FIXED SIZE WINDOW
 
 const maxSumSubarrayOfSizeK = (arr, k) => {
-    if (k <= 0 || k > arr.length) {
-        return "Invalid input";
+    if (k > arr.length) {
+        return 'Invalid data';
     }
 
+    let sum = 0;
+    let i = 0; // start
+    let j = 0; // end
     let maxSum = 0;
-    let currentSum = 0;
 
-    // Calculate sum of the first window
-    for (let i = 0; i < k; i++) {
-        currentSum += arr[i];
-    }
+    while (j < arr.length) {
+        sum = sum + arr[j];
 
-    // Slide the window through the array
-    for (let i = k; i < arr.length; i++) {
-        currentSum = currentSum + arr[i] - arr[i - k]; // Add the next element and subtract the first element of the window
-        maxSum = Math.max(maxSum, currentSum);
+        if (j - i + 1 < k) { // condition to increment the j
+            j++;
+        } else if (j - i + 1 === k) { // window size
+            if (sum > maxSum) {
+                maxSum = sum;
+            }
+            sum = sum - arr[i]; // moving the window forward and maintain the wind size
+            i++;
+            j++;
+        }
     }
 
     return maxSum;
 };
 
 // Example usage:
-const array = [1, 4, 2, 10, 2, 3, 1, 0, 20];
+const array = [1, 4, 2, 10, 2, 3, 1, 10, 20];
 const k = 2;
-
 const result = maxSumSubarrayOfSizeK(array, k);
-console.log(result); // Output: 24 (sum of subarray [2, 10, 2, 3])
+console.log(result); // Output: 30 (sum of subarray [10, 20])
