@@ -55,65 +55,30 @@ class SinglyLinkedList{
         if(!this.head) {
             this.head = newNode;
             this.tail = this.head;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
         }
-        newNode.next = this.head;
-        this.head = newNode;
         this.length++;
         return this;
-    }
-    get(index){
-        if(index < 0 || index >= this.length) return null;
-        var counter = 0;
-        var current = this.head;
-        while(counter !== index){
-            current = current.next;
-            counter++;
-        }
-        return current;
-    }
-    set(index, val){
-        var foundNode = this.get(index);
-        if(foundNode){
-            foundNode.val = val;
-            return true;
-        }
-        return false;
-    }
-    insert(index, val){
-        if(index < 0 || index > this.length) return false;
-        if(index === this.length) return !!this.push(val);
-        if(index === 0) return !!this.unshift(val);
-        
-        var newNode = new Node(val);
-        var prev = this.get(index - 1);
-        var temp = prev.next;
-        prev.next = newNode;
-        newNode.next = temp;
-        this.length++;
-        return true;
-    }
-    remove(index){
-        if(index < 0 || index >= this.length) return undefined;
-        if(index === 0) return this.shift();
-        if(index === this.length - 1) return this.pop();
-        var previousNode = this.get(index - 1);
-        var removed = previousNode.next;
-        previousNode.next = removed.next;
-        this.length--;
-        return removed;
     }
 }
 
 var list = new SinglyLinkedList()
-
-list.push(100)
-list.push(201)
-list.push(250)
-list.push(350)
+list.push("HELLO") 
+list.push("GOODBYE") 
+list.push("!")
 
 
+console.log('uns');
 
-
-
-
-
+/** PSEUDOCODE FOR THE UNSHIFT
+ * 
+1. This function should accept a value
+2. Create a new node using the value passed to the function
+3. If there is no head property on the list, set the head and tail to be the newly created node
+4. Otherwise set the newly created node's next property to be the current head property on the list
+5. Set the head property on the list to be that newly created node
+6. Increment the length of the list by 1
+7. Return the linked list
+ */

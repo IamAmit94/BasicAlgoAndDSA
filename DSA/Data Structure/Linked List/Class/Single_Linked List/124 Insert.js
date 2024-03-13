@@ -79,14 +79,43 @@ class SinglyLinkedList{
         }
         return false;
     }
+    insert(index, val){
+        if(index < 0 || index > this.length) return false;
+        if(index === this.length) return !!this.push(val);
+        if(index === 0) return !!this.unshift(val);
+        
+        var newNode = new Node(val);
+        var prev = this.get(index - 1);
+        var temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
 }
 
 var list = new SinglyLinkedList()
 
-list.push("HELLO")  
-list.push("GOODBYE") 
-list.push("!") 
-list.push("<3")
-list.push(":)") 
+list.push(100)
+list.push(201)
+list.push(250)
+list.push(350)
+console.log('Before ===>',list)
+console.log('ll list ====> ',list.insert(2, 33));
+console.log('After ===>',list)
 
 
+
+//Adding a node to the Linked List at a specific position
+/** PSEDUCODE FOR THE INSERT
+ * 
+ *
+1. If the index is less than zero or greater than the length, return false
+2. If the index is the same as the length, push a new node to the end of the list
+3. If the index is 0, unshift a new node to the start of the list
+4. Otherwise, using the get method, access the node at the index - 1
+5. Set the next property on that node to be the new node
+6. Set the next property on the new node to be the previous next
+7. Increment the length
+8. Return true
+ */

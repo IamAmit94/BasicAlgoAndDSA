@@ -71,14 +71,61 @@ class SinglyLinkedList{
         }
         return current;
     }
+    set(index, val){
+        var foundNode = this.get(index);
+        if(foundNode){
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
+    insert(index, val){
+        if(index < 0 || index > this.length) return false;
+        if(index === this.length) return !!this.push(val);
+        if(index === 0) return !!this.unshift(val);
+        
+        var newNode = new Node(val);
+        var prev = this.get(index - 1);
+        var temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
+    remove(index){
+        if(index < 0 || index >= this.length) return undefined;
+        if(index === 0) return this.shift();
+        if(index === this.length - 1) return this.pop();
+        var previousNode = this.get(index - 1);
+        var removed = previousNode.next;
+        previousNode.next = removed.next;
+        this.length--;
+        return removed;
+    }
 }
 
 var list = new SinglyLinkedList()
 
-list.push("HELLO")  
-list.push("GOODBYE") 
-list.push("!") 
-list.push("<3")
-list.push(":)") 
+list.push(100)
+list.push(201)
+list.push(250)
+list.push(350)
+
+// Removing a node from the Linked List at a specific position
+
+/**PSEDUCODE FOR THE REMOVE
+ * 
+ * 
+1. If the index is less than zero or greater than the length, return undefined
+2. If the index is the same as the length-1, pop
+3. If the index is 0, shift
+4. Otherwise, using the get method, access the node at the index - 1
+5. Set the next property on that node to be the next of the next node
+6. Decrement the length
+7. Return the value of the node removed
+ */
+
+
+
 
 

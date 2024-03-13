@@ -50,21 +50,22 @@ class SinglyLinkedList{
         }
         return currentHead;
     }
-    unshift(val){
-        var newNode = new Node(val);
-        if(!this.head) {
-            this.head = newNode;
-            this.tail = this.head;
-        } else {
-            newNode.next = this.head;
-            this.head = newNode;
-        }
-        this.length++;
-        return this;
-    }
 }
+
 
 var list = new SinglyLinkedList()
 list.push("HELLO") 
 list.push("GOODBYE") 
-list.push("!")
+list.push('NOW')
+list.shift()
+
+console.log('list shift ===>',list)
+
+/** PSEUDOCODE FOR THE SHIFT
+ * 
+1. If there are no nodes, return undefined
+2. Store the current head property in a variable
+3. Set the head property to be the current head's next property
+4. Decrement the length by 1
+5. Return the value of the node removed
+ */

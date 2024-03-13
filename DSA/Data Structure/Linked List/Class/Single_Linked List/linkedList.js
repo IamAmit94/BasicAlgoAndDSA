@@ -32,3 +32,6 @@ list.push("Welcome")
 console.log(list)
 
 //https://medium.com/swlh/singly-linked-list-in-javascript-a0e58d045561
+
+// Linked List, like arrays, is a linear data structure. It contains head, tail and length properties. As shown below, each element in linked list is a node,
+//  which has a value and a reference to next node, or if it’s tail, points to null.

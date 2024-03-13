@@ -50,10 +50,58 @@ class SinglyLinkedList{
         }
         return currentHead;
     }
+    unshift(val){
+        var newNode = new Node(val);
+        if(!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        }
+        newNode.next = this.head;
+        this.head = newNode;
+        this.length++;
+        return this;
+    }
+    get(index){
+        if(index < 0 || index >= this.length) return null;
+        var counter = 0;
+        var current = this.head;
+        while(counter !== index){
+            current = current.next;
+            counter++;
+        }
+        return current;
+    }
+    set(index, val){
+        var foundNode = this.get(index);
+        if(foundNode){
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
 }
 
-
 var list = new SinglyLinkedList()
-list.push("HELLO") 
+
+list.push("HELLO")  
 list.push("GOODBYE") 
-list.push("!")
+// list.push("!") 
+// list.push("<3")
+// list.push(":)") 
+list.set(1, 33)
+
+
+console.log('ll list ====> ',list);
+
+
+
+
+// Changing the value of a node based on it's position in the Linked List
+
+/* PSEUDOCODE FOR SET
+
+1. This function should accept a value and an index
+2. Use your get function to find the specific node.
+3. If the node is not found, return false
+4. If the node is found, set the value of that node to be the value passed to the function and return true
+*/

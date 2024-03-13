@@ -71,34 +71,25 @@ class SinglyLinkedList{
         }
         return current;
     }
-    set(index, val){
-        var foundNode = this.get(index);
-        if(foundNode){
-            foundNode.val = val;
-            return true;
-        }
-        return false;
-    }
-    insert(index, val){
-        if(index < 0 || index > this.length) return false;
-        if(index === this.length) return !!this.push(val);
-        if(index === 0) return !!this.unshift(val);
-        
-        var newNode = new Node(val);
-        var prev = this.get(index - 1);
-        var temp = prev.next;
-        prev.next = newNode;
-        newNode.next = temp;
-        this.length++;
-        return true;
-    }
 }
 
 var list = new SinglyLinkedList()
 
-list.push(100)
-list.push(201)
-list.push(250)
-list.push(350)
+list.push("HELLO")  
+list.push("GOODBYE") 
+list.push("!") 
+list.push("<3")
+list.push(":)") 
 
 
+console.log('LL GET ===', list.get(13));
+
+// GET: Retrieving a node by it's position in the Linked List!
+
+
+/* PSEUDOCODE GET
+
+1. This function should accept an index
+2. If the index is less than zero or greater than or equal to the length of the list, return null
+3. Loop through the list until you reach the index and return the node at that specific index
+ */

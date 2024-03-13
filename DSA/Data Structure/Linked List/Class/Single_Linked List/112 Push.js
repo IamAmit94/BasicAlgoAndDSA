@@ -13,20 +13,23 @@ class SinglyLinkedList{
     }
     push(val){
         var newNode = new Node(val);
-        if(!this.head){
+        if(!this.head){// if there is no head then set the head and tail to be the newly created node
             this.head = newNode;
             this.tail = this.head;
-        } else {
-            this.tail.next = newNode;
+        } else { // else set the next node to be the newly created node
+            this.tail.next = newNode; 
             this.tail = newNode;
         }
-        this.length++;
+        this.length++; // icrement the length in order to check the number of insertion.
         return this;
     }
 }
 
 var list = new SinglyLinkedList()
-list.push("HELLO")
-list.push("GOODBYE")
+list.push("Welcome")
+list.push("LL")
+list.push("push")
 
+
+console.log('Linked list push ==', list);
 //https://medium.com/swlh/singly-linked-list-in-javascript-a0e58d045561

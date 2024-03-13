@@ -9,3 +9,10 @@ const linearSearch = (array, val) => {
 const data = linearSearch([2, 4, 5, 6, 7, 9, 87], 6);
 
 console.log(`====linearSearch============`, data);
+
+
+
+// worst-case performance ---- O(n)
+// best-case performance ---- O(1)
+// average-case performance ---- O(n)
+// worst-case space complexity ---- O(1)
