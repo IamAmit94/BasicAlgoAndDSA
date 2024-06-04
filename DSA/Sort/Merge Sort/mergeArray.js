@@ -16,12 +16,23 @@ function merge(arr1, arr2){
         results.push(arr1[i])
         i++;
     }
+    
     while(j < arr2.length) {
         results.push(arr2[j])
         j++;
     }
     return results;
 }
-merge([100,200], [1,2,3,5,6])
+
+
+
+// let arr1 = [1,10,50];
+// let arr2 = [2,14,99,100];
+
+
+let arr1 = [100,200]; 
+let arr2 = [1,2,3,5,6];
+
+console.log(merge(arr1, arr2))
 
                    

@@ -1,6 +1,6 @@
 /*********************************************
  *
- *             soring using Recursion in js
+ *             sorting using Recursion in js
  *
  * *******************************************
  */

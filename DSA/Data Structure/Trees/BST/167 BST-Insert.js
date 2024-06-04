@@ -50,6 +50,24 @@ tree.insert(2)
 tree.insert(16)
 tree.insert(7)
 
+console.log('tree ---',tree)
 
 
 
+
+/** PSEDUO CODE FOR THE INSERTION IN THE TREE
+  Steps - Iteratively or Recursively
+
+1. Create a new node
+2. Starting at the root
+    2.1 Check if there is a root, if not - the root now becomes that new node!
+    2.2 If there is a root, check if the value of the new node is greater than or less than the value of the root
+    2.3 If it is greater 
+        2.3.1. Check to see if there is a node to the right
+            If there is, move to that node and repeat these steps
+            If there is not, add that node as the right property
+3. If it is less
+    3.1 Check to see if there is a node to the left
+        3.1.1 If there is, move to that node and repeat these steps
+        3.1.2 If there is not, add that node as the left property
+ */

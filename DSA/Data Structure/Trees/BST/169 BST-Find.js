@@ -82,5 +82,25 @@ tree.insert(16)
 tree.insert(7)
 
 
+console.log(tree.find(7))
 
+// contains will return true or false
+// find will return the node
 
+/**Finding a Node in a BST
+Steps - Iteratively or Recursively
+
+1. Starting at the root
+    1.1 Check if there is a root, if not - we're done searching!
+    1.2 If there is a root, check if the value of the new node is the value we are looking for. If we found it, we're done!
+    1.3 If not, check to see if the value is greater than or less than the value of the root
+    1.4 If it is greater 
+        1.4.1 Check to see if there is a node to the right
+            A. If there is, move to that node and repeat these steps
+            B. If there is not, we're done searching!
+2. If it is less
+    2.1 Check to see if there is a node to the left
+        A. If there is, move to that node and repeat these steps
+        B. If there is not, we're done searching!
+
+*/

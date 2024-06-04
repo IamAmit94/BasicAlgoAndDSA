@@ -1,11 +1,12 @@
 // Optimized BubbleSort with noSwaps
 function bubbleSort(arr){
-  var noSwaps;
-  for(var i = arr.length; i > 0; i--){
+  let noSwaps;
+  for(let i = arr.length; i > 0; i--){
     noSwaps = true;
-    for(var j = 0; j < i - 1; j++){
+    for(let j = 0; j < i - 1; j++){
+      console.log(arr, arr[j] , arr[j+1])// to check the current status of sort
       if(arr[j] > arr[j+1]){
-        var temp = arr[j];
+        let temp = arr[j];
         arr[j] = arr[j+1];
         arr[j+1] = temp;
         noSwaps = false;         
@@ -16,4 +17,13 @@ function bubbleSort(arr){
   return arr;
 }
 
-bubbleSort([8,1,2,3,4,5,6,7]);
+
+let arr = [8,1,2,3];
+// let arr = [8,1,2,3,4,5,6,7]
+
+console.log(bubbleSort(arr)) ;
+
+
+// In the above optimized version when the swap is done and there
+// is no need to swap further as element are in sorted position, so 
+// we will not be sorting the element anymore

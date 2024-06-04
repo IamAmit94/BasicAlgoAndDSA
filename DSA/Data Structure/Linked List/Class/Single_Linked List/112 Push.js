@@ -33,3 +33,13 @@ list.push("push")
 
 console.log('Linked list push ==', list);
 //https://medium.com/swlh/singly-linked-list-in-javascript-a0e58d045561
+
+
+// Pushing pseudocode
+
+// 1. This function should accept a value
+// 2. Create a new node using the value passed to the function
+// 3. If there is no head property on the list, set the head and tail to be the newly created node
+// 4. Otherwise set the next property on the tail to be the new node and set the tail property on the list to be the newly created node
+// 5. Increment the length by one
+// 6. Return the linked list
