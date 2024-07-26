@@ -5,5 +5,9 @@ function hash(key, arrayLen) {
     let value = char.charCodeAt(0) - 96
     total = (total + value) % arrayLen;
   }
+  console.log(total)
   return total;
 }
+
+
+hash("hello", 10)

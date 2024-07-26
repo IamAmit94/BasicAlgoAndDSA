@@ -6,9 +6,7 @@ function bubbleSort(arr){
     for(let j = 0; j < i - 1; j++){
       console.log(arr, arr[j] , arr[j+1])// to check the current status of sort
       if(arr[j] > arr[j+1]){
-        let temp = arr[j];
-        arr[j] = arr[j+1];
-        arr[j+1] = temp;
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
         noSwaps = false;         
       }
     }

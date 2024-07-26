@@ -145,7 +145,7 @@ console.log(addNumbers(20, 30, 40, 50));
 
 
 /****************************************************************
- * TNULLISH COALESCING OPERATOR
+ * NULLISH COALESCING OPERATOR
  ****************************************************************/
 
 /*let a = 0;

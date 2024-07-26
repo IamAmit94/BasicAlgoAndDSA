@@ -14,3 +14,7 @@ class DoublyLinkedList{
     }
 }
 
+
+
+let myDoubleLinkedList = new Node(20);
+console.log(myDoubleLinkedList)

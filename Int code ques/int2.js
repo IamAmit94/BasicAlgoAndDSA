@@ -15,7 +15,7 @@
 const reverseArray = (arr) => {
     let start = 0;
     let end = arr.length - 1;
-    let reversedArr = arr.slice(); // Create a copy of the original array
+    // let reversedArr = arr.slice(); // Create a copy of the original array
     
     // Swap elements from start and end positions
     while (start < end) {

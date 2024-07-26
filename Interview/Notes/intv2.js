@@ -38,16 +38,16 @@ var myName = 'userName';
 /*********Example****** */
 
 // global scope
-//  function subscribe() {
-//     var name = "this is my name"
-// //inner scope
-//     function displayName() { // this is closure
-// //inner scope
-//         console.log(name); // this is my name
-//     }
-//     displayName(); // the displayName is called closure
-//  }
-//  subscribe();
+ function subscribe() {
+    var name = "this is my name"
+//inner scope
+    function displayName() { // this is closure
+//inner scope
+        console.log(name); // this is my name
+    }
+    displayName(); // the displayName is called closure
+ }
+ subscribe();
 
 // closure has 3 scopes ie =>  local, global and function access to 
  var e = 10;

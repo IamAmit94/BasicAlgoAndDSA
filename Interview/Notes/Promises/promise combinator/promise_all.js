@@ -30,17 +30,17 @@ function asyncTask3() {
     });
 }
 
-// function asyncTask4() {  // rejected promise case
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             reject("Result of asyncTask4 FAILED");
-//         }, 1000);
-//     });
-// }
+function asyncTask4() {  // rejected promise case
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject("Result of asyncTask4 FAILED");
+        }, 1000);
+    });
+}
 
 // Using Promise.all() to wait for multiple asynchronous operations to complete
-// Promise.all([asyncTask1(), asyncTask2(), asyncTask3(), asyncTask4()]) // Case if any 1 promise is rejected
-Promise.all([asyncTask1(), asyncTask2(), asyncTask3()])
+Promise.all([asyncTask1(), asyncTask2(), asyncTask3(), asyncTask4()]) // Case if any 1 promise is rejected
+// Promise.all([asyncTask1(), asyncTask2(), asyncTask3()])
     .then((results) => {
         console.log("All tasks completed successfully!");
         console.log("Results:", results);

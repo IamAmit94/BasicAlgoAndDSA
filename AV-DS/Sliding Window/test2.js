@@ -1,30 +1,47 @@
-// First Negative Number in every Window of Size K | Sliding Window
+const firstNegativeNumberInWindow = (arr, k) => {
 
-const firstNegativeInWindow = (arr, k) => {
-    const result = [];
-    const negatives = [];
 
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] < 0) {
-            negatives.push(i);
+    if(k > arr.length) {
+        return `invalid window size is passed !`
+    }
+    let i = 0; // start
+    let j = 0; // end
+    const tempStore = []; // Temporary store for negative numbers in the current window
+    const finalAns = []; // Final answer array
+
+    while (j < arr.length) {
+        // If the element at the end of win size is negative, add it to tempStore
+        if (arr[j] < 0) {
+            tempStore.push(arr[j]);
         }
 
-        if (i - negatives[0] === k - 1) {
-            // If the first negative is outside the current window, remove it
-            if (negatives.length > 0 && negatives[0] < i - k + 1) {
-                negatives.shift();
+        // If the size of the current window is less than k, increment the right pointer
+        if (j - i + 1 < k) {
+            j++;
+        } else if (j - i + 1 == k) {
+            // If the size of the current window is exactly k
+            if (tempStore.length == 0) {
+                finalAns.push(0); // No negative number in the current window so add 0 to it
+             
+            } else {
+                finalAns.push(tempStore[0]); // First negative number in the current window
+                // If the element at the start of window is negative, remove it from tempStore ie if there are 2 -ve in tempStore
+                if (arr[i] === tempStore[0]) {
+                    tempStore.shift();
+                    
+                }
             }
-
-            result.push(negatives.length > 0 ? arr[negatives[0]] : 0);
+            // Slide the window forward
+            j++;
+            i++;
+            // console.log('final Anss===',finalAns)
+            // console.log('tempStore====>',tempStore)
         }
     }
 
-    return result;
-};
+    return finalAns;
+}
 
-// Example usage:
-const array = [12, 1, -7, 8, -15, 30, 16, 28];
+const arr = [12, 1, -7, 8, -15, 30, 16, 28];
 const k = 3;
-
-const result = firstNegativeInWindow(array, k);
-console.log(result); // Output: [-1, -1, -7, -15, -15, 0]
+console.log(firstNegativeNumberInWindow(arr, k)); // Output: [ -7, -7, -7, -15, -15, 0 ]

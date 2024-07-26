@@ -25,8 +25,8 @@ class SinglyLinkedList{
     }
     pop(){
         if(!this.head) return undefined; // If the list is empty, return undefined
-        var current = this.head; // set the curent and new tail to be at start
-        var newTail = current;
+        let current = this.head; // set the curent and new tail to be at start
+        let newTail = current;
         while(current.next){  // Traverse the list to find the last and second-to-last nodes
             newTail = current;
             current = current.next;
@@ -44,7 +44,7 @@ class SinglyLinkedList{
 }
 
 
-var list = new SinglyLinkedList()
+let list = new SinglyLinkedList()
 list.push("HELLO") 
 list.push("GOODBYE")
 list.push("!")
@@ -60,4 +60,10 @@ console.log('list pop==', list);
 4. Set the tail to be the 2nd to last node
 5. Decrement the length of the list by 1
 6. Return the value of the node removed
+ */
+
+
+/** LOGIC OF THE POP
+ * 
+ 1. Assuming the head to be the current and nextTail
  */

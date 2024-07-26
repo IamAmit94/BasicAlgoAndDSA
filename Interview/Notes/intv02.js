@@ -153,7 +153,8 @@ Array.prototype.myReduce = function (cb, initialValue) {
 // const moreThan60 = students.filter(stu => stu.marks > 60).map(stu => stu.name)
 // console.log((moreThan60));
 
-// //Q6: return total marks for students with marks greater than 60 after 20 marks have been added to those who scored less than 60
+// //Q6: return total marks for students with marks greater than 60 after 20 marks have been added to those who 
+//       scored less than 60
 
 // const complexProb = students.map((stu) => { if (stu.marks < 60) {
 //                             stu.marks +=20 

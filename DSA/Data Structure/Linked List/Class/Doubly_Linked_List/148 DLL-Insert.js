@@ -14,7 +14,7 @@ class DoublyLinkedList {
         this.length = 0;
     }
     push(val){
-        var newNode = new Node(val);
+        let newNode = new Node(val);
         if(this.length === 0){
             this.head = newNode;
             this.tail = newNode;
@@ -28,7 +28,7 @@ class DoublyLinkedList {
     } 
     pop(){
         if(!this.head) return undefined;
-        var poppedNode = this.tail;
+        let poppedNode = this.tail;
         if(this.length === 1){
             this.head = null;
             this.tail = null;
@@ -42,7 +42,7 @@ class DoublyLinkedList {
     }
     shift(){
         if(this.length === 0) return undefined;
-        var oldHead = this.head;
+        let oldHead = this.head;
         if(this.length === 1){
             this.head = null;
             this.tail = null;
@@ -55,7 +55,7 @@ class DoublyLinkedList {
         return oldHead;
     }
     unshift(val){
-        var newNode = new Node(val);
+        let newNode = new Node(val);
         if(this.length === 0) {
             this.head = newNode;
             this.tail = newNode;
@@ -69,8 +69,9 @@ class DoublyLinkedList {
     }
     get(index){
         if(index < 0 || index >= this.length) return null;
-        var count, current;
+        let count, current;
         if(index <= this.length/2){
+            console.log('Working from START')
             count = 0;
             current = this.head;
             while(count !== index){
@@ -78,6 +79,7 @@ class DoublyLinkedList {
                 count++;
             }
         } else {
+            console.log('Working from END')
             count = this.length - 1;
             current = this.tail;
             while(count !== index){
@@ -88,7 +90,7 @@ class DoublyLinkedList {
         return current;
     }
     set(index, val){
-        var foundNode = this.get(index);
+        let foundNode = this.get(index);
         if(foundNode != null){
             foundNode.val = val;
             return true;
@@ -100,18 +102,41 @@ class DoublyLinkedList {
         if(index === 0) return !!this.unshift(val);
         if(index === this.length) return !!this.push(val);
 
-        var newNode = new Node(val);
-        var beforeNode = this.get(index-1);
-        var afterNode = beforeNode.next;
+        let newNode = new Node(val);
+        let beforeNode = this.get(index-1);
+        let afterNode = beforeNode.next;
         
         beforeNode.next = newNode, newNode.prev = beforeNode;
         newNode.next = afterNode, afterNode.prev = newNode;
         this.length++;
         return true;
     }
+
+    remove(index){
+        if(index < 0 || index >= this.length) return null;
+        if(index === 0) return this.shift();
+        if(index === this.length - 1) return this.pop();
+
+        let removedNode = this.get(index);
+        let beforeNode = removedNode.prev;
+        let afterNode = removedNode.next;
+
+        beforeNode.next = afterNode
+        afterNode.prev = beforeNode
+
+        removedNode.next = null
+        removedNode.prev = null
+        
+        this.length--;
+        return removedNode;
+    }
+
 }
 
-var list = new DoublyLinkedList()
+let list = new DoublyLinkedList()
 list.push("Harry")
 list.push("Ron")
 list.push("Hermione")
+list.get(2);
+
+console.log(list)

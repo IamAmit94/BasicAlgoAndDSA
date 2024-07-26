@@ -27,7 +27,7 @@ const removeDuplicates = (str) => {
             charCount[char] = 1;
         }
     }
-
+    // console.log(charCount)
     return uniqueStr;
 }
 

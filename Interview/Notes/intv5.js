@@ -40,7 +40,7 @@
 // user.childObj.getDetails() // Alfa and undefined ||coz this is pointing to the immediate parent object
 
 
-/****************In case if we repl;ace it eith the arrow function******** */
+/****************In case if we replace it eith the arrow function******** */
 
 // let user = {
 //     name: "Amit",
@@ -50,8 +50,8 @@
 //     },
 // }
 
-// user.getDetails() // undefined || since it is targeting the window object. As in arro func the 'this' comes from the 
-// parent function as show below
+// user.getDetails() // undefined || since it is targeting the window object. As in arro func the 'this' comes from
+//  the parent function as show below
 
 // let user = {
 //     name: "Amit",

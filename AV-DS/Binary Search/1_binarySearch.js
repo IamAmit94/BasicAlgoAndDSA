@@ -5,8 +5,8 @@
    *        1. Left = 0, Right = arr.length - 1
    *        2. Mid = Math.floor((Left + Right)/2)
    *        3. arr[mid] === element;  return element
-   *        4. arr[mid] > element;    left = mid + 1
-   *        5. arr[mid] < element;    right = mid - 1
+   *        4. arr[mid] < element;    left = mid + 1
+   *        5. arr[mid] > element;    right = mid - 1
    *        6. return -1 (elment not found)
    *        
    * *       index =   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]   

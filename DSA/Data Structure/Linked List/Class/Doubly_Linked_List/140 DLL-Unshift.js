@@ -14,7 +14,7 @@ class DoublyLinkedList {
         this.length = 0;
     }
     push(val){
-        var newNode = new Node(val);
+        let newNode = new Node(val);
         if(this.length === 0){
             this.head = newNode;
             this.tail = newNode;
@@ -28,7 +28,7 @@ class DoublyLinkedList {
     } 
     pop(){
         if(!this.head) return undefined;
-        var poppedNode = this.tail;
+        let poppedNode = this.tail;
         if(this.length === 1){
             this.head = null;
             this.tail = null;
@@ -42,7 +42,7 @@ class DoublyLinkedList {
     }
     shift(){
         if(this.length === 0) return undefined;
-        var oldHead = this.head;
+        let oldHead = this.head;
         if(this.length === 1){
             this.head = null;
             this.tail = null;
@@ -55,7 +55,7 @@ class DoublyLinkedList {
         return oldHead;
     }
     unshift(val){
-        var newNode = new Node(val);
+        let newNode = new Node(val);
         if(this.length === 0) {
             this.head = newNode;
             this.tail = newNode;
@@ -69,7 +69,10 @@ class DoublyLinkedList {
     }
 }
 
-var list = new DoublyLinkedList()
-list.push("Harry")
-list.push("Ron")
-list.push("Hermione")
+let list = new DoublyLinkedList()
+list.push(1)
+list.push(2)
+list.push(3)
+
+list.unshift(1)
+console.log('list=====> ',list);

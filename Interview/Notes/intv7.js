@@ -1,7 +1,9 @@
 // Throttling:
 
-// Throttling is a technique that limits the rate at which a function can be executed. It ensures that the function is not called more than once within a specified time interval.
-// It is useful for scenarios where you want to ensure a function is executed at most once per fixed time interval, regardless of how many times it is called during that interval.
+// Throttling is a technique that limits the rate at which a function can be executed. It ensures that the function 
+// is not called more than once within a specified time interval.
+// It is useful for scenarios where you want to ensure a function is executed at most once per fixed time interval,
+//  regardless of how many times it is called during that interval.
 
 function throttle(func, delay) {
     let lastExecutedTime = 0;

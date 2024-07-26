@@ -34,40 +34,28 @@ class BinarySearchTree {
             }
         }
     }
+    DFSPreOrder(){
+        let data = [];
+        function traverse(node){
+            data.push(node.value);
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return data;
+    }
 }
 
 
-//      10
-//   5     13
-// 2  7  11  16
-
 let tree = new BinarySearchTree();
-tree.insert(10)
-tree.insert(5)
-tree.insert(13)
-tree.insert(11)
-tree.insert(2)
-tree.insert(16)
-tree.insert(7)
-
-console.log('tree ---',tree)
+tree.insert(10);
+tree.insert(6);
+tree.insert(15);
+tree.insert(3);
+tree.insert(8);
+tree.insert(20);
+tree.DFSPreOrder();
 
 
 
 
-/** PSEDUO CODE FOR THE INSERTION IN THE TREE
-  Steps - Iteratively or Recursively
-
-1. Create a new node
-2. Starting at the root
-    2.1 Check if there is a root, if not - the root now becomes that new node!
-    2.2 If there is a root, check if the value of the new node is greater than or less than the value of the root
-    2.3 If it is greater 
-        2.3.1. Check to see if there is a node to the right
-            If there is, move to that node and repeat these steps
-            If there is not, add that node as the right property
-3. If it is less
-    3.1 Check to see if there is a node to the left
-        3.1.1 If there is, move to that node and repeat these steps
-        3.1.2 If there is not, add that node as the left property
- */

@@ -62,5 +62,5 @@ importantAction("Amit")
 console.log('Stop')
 
 
-// The reason above code is called promise chaining is because we are getting the output and again we are c
+// The reason above code is called promise chaining is because we are getting the output and again we are 
 // chaining it with other promise.

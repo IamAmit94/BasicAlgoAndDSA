@@ -35,3 +35,33 @@
 18. Object.values(obj): Returns an array of all values of the enumerable properties of an object.
 
 These are some of the commonly used object methods in JavaScript. Always refer to the official documentation for the most up-to-date information:
+
+Certainly! Here are all the methods related to objects in JavaScript:
+
+1. **Object.assign()**
+2. **Object.create()**
+3. **Object.defineProperties()**
+4. **Object.defineProperty()**
+5. **Object.entries()**
+6. **Object.freeze()**
+7. **Object.fromEntries()**
+8. **Object.getOwnPropertyDescriptor()**
+9. **Object.getOwnPropertyDescriptors()**
+10. **Object.getOwnPropertyNames()**
+11. **Object.getOwnPropertySymbols()**
+12. **Object.getPrototypeOf()**
+13. **Object.is()**
+14. **Object.isExtensible()**
+15. **Object.isFrozen()**
+16. **Object.isSealed()**
+17. **Object.keys()**
+18. **Object.preventExtensions()**
+19. **Object.seal()**
+20. **Object.setPrototypeOf()**
+21. **Object.values()**
+22. **Object.prototype.hasOwnProperty()**
+23. **Object.prototype.isPrototypeOf()**
+24. **Object.prototype.propertyIsEnumerable()**
+25. **Object.prototype.toLocaleString()**
+26. **Object.prototype.toString()**
+27. **Object.prototype.valueOf()**

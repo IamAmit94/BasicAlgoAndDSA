@@ -1,46 +1,34 @@
-// First Version
-function pivot(arr, start=0, end=arr.length+1){
-  function swap(array, i, j) {
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
 
-  var pivot = arr[start];
-  var swapIdx = start;
-
-  for(var i = start + 1; i < arr.length; i++){
-    if(pivot > arr[i]){
-      swapIdx++;
-      swap(arr,swapIdx,i);
-    }
-  }
-  swap(arr,start,swapIdx);
-  return swapIdx;
-}
 
 // Version with ES2015 Syntax
-function pivot(arr, start = 0, end = arr.length - 1) {
-  const swap = (arr, idx1, idx2) => {
-    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
-  };
+const pivot = (arr) => {
+  let start = 0;
+  let end = arr.length - 1;
+  let pivotValue = arr[start]; // Store the pivot value
+  let swapIndex = start; // Initialize the swap index
 
-  // We are assuming the pivot is always the first element
-  let pivot = arr[start];
-  let swapIdx = start;
-
-  for (let i = start + 1; i <= end; i++) {
-    if (pivot > arr[i]) {
-      swapIdx++;
-      swap(arr, swapIdx, i);
-    }
+  for (let i = start + 1; i <=end; i++) {
+      if (arr[i] < pivotValue) { // Compare to pivot value
+          swapIndex++; // Move the swap index to the right
+          // Swap elements
+          [arr[swapIndex], arr[i]] = [arr[i], arr[swapIndex]];
+      }
   }
 
-  // Swap the pivot from the start the swapPoint
-  swap(arr, start, swapIdx);
-  return swapIdx;
+  // Swap the pivot element with the element at the swap index
+  [arr[start], arr[swapIndex]] = [arr[swapIndex], arr[start]];
+  return swapIndex; // Return the new index of the pivot
 }
 
-pivot([4,8,2,1,5,7,6,3])
+// Example usage
+console.log(pivot([4, 8, 2, 1, 5, 7, 6, 3])); // This will log the new index of the pivot
+
+
+// [4,8,2,1,5,7,6,3]
+// [4,2,8,1,5,7,6,3] //swap and swap++
+// [4,2,1,8,5,7,6,3] //swap and swap++
+// [4,2,1,8,5,7,6,3] // 4 will be comparing to the rest element since all are greater nothing happn
+// [4,2,1,3,5,7,6,8] // since 3 is smaller then swap
+// [3,2,1,4,5,7,6,8] // Now our pivot is in right position
 
 

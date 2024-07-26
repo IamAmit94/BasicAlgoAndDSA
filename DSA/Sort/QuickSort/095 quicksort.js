@@ -1,9 +1,7 @@
 
-function pivot(arr, start = 0, end = arr.length - 1) {
-  const swap = (arr, idx1, idx2) => {
-    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
-  };
+const pivot = (arr, start = 0, end = arr.length - 1) => {
 
+  
   // We are assuming the pivot is always the first element
   let pivot = arr[start];
   let swapIdx = start;
@@ -11,28 +9,28 @@ function pivot(arr, start = 0, end = arr.length - 1) {
   for (let i = start + 1; i <= end; i++) {
     if (pivot > arr[i]) {
       swapIdx++;
-      swap(arr, swapIdx, i);
+      [arr[swapIdx], arr[i]] = [arr[i], arr[swapIdx]]
     }
   }
 
   // Swap the pivot from the start the swapPoint
-  swap(arr, start, swapIdx);
+  [arr[start], arr[swapIdx]] = [arr[swapIdx], arr[start]]
   return swapIdx;
 }
 
 
-function quickSort(arr, left = 0, right = arr.length -1){
+const quickSort = (arr, left = 0, right = arr.length -1) => {
     if(left < right){
         let pivotIndex = pivot(arr, left, right) //3
         //left
-        quickSort(arr,left,pivotIndex-1);
+        quickSort(arr,left,pivotIndex-1); // Decrement by 1 coz we do not want to include the pivot since it is in correct position
         //right
-        quickSort(arr,pivotIndex+1,right);
+        quickSort(arr,pivotIndex+1,right); // Increment by 1 coz we do not want to include the pivot since it is in correct position
       }
      return arr;
 } 
            
-quickSort([100,-3,2,4,6,9,1,2,5,3,23])
+console.log(quickSort([100,7,2,4,6,9,1,2,5,3,23]))
 
 
 

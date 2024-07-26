@@ -1,4 +1,5 @@
-// similar to the promise.race however it will return the first fullfilled promise and ignore all the remaning one
+// similar to the promise.race however it will return the first fullfilled promise and ignore all the remaning
+//  one
 
 
 // Simulated asynchronous functions that return promises

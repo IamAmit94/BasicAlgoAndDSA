@@ -22,7 +22,8 @@
 // })
   // function without name is known as annonymous function
 // THE ANONYMOUS FUNCTION CAN BE PASS TO THE VARIABLE OF TO FUNCTION AS A CALLBACK
-// FUNCTION EXPRESSION AND DECLARATION ARE SAME JUST THE DIFFRENCE THAT FUNCTION EXPRESSION ARE ASSIGNED TO A VARIABLE
+// FUNCTION EXPRESSION AND DECLARATION ARE SAME JUST THE DIFFRENCE THAT FUNCTION EXPRESSION ARE ASSIGNED TO A 
+// VARIABLE
 
 
 /************************************************************************************ */
@@ -65,8 +66,9 @@
 
   // x = 10 output
 
-// clousers: The ability to access the variable and function that are lexically out of scope are called clousers. Clousers are 
-// created whenever the new functions are created. Becasue that function has the refrence to it's outer scope
+// clousers: The ability to access the variable and function that are lexically out of scope are called clousers.  
+// Clousers are created whenever the new functions are created. Becasue that function has the refrence to it's outer
+//  scope
 
 
 /************************************************************************************ */
@@ -119,12 +121,12 @@
 /************************************************************************************ */
 // Q7: spread operator
 
-// function multiply(...nums) { // rest operator
+// function multiply(...nums) { // rest operator || Parameter
 //     console.log(nums[0]*nums[1]);
 // }
 
 // var arr = [5,6];
-// multiply(...arr); // spread operator
+// multiply(...arr); // spread operator || Arguments
 
 
 

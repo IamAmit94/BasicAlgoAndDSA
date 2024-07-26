@@ -34,8 +34,8 @@ const longestSubstringKUnique = (s, k) => {
 };
 
 // Example usage:
-const inputString = "eceba";
-const k = 2;
+const inputString = "qsjufvbadfivujb";
+const k = 5;
 
 const result = longestSubstringKUnique(inputString, k);
 console.log(result); // Output: "ece"

@@ -36,7 +36,7 @@ class HashTable {
     for(let i = 0; i < this.keyMap.length; i++){
       if(this.keyMap[i]){
         for(let j = 0; j < this.keyMap[i].length; j++){
-          if(!keysArr.includes(this.keyMap[i][j][0])){
+          if(!keysArr.includes(this.keyMap[i][j][0])){ // check for removing the duplicate keys
             keysArr.push(this.keyMap[i][j][0])
           }
         }
@@ -49,7 +49,7 @@ class HashTable {
     for(let i = 0; i < this.keyMap.length; i++){
       if(this.keyMap[i]){
         for(let j = 0; j < this.keyMap[i].length; j++){
-          if(!valuesArr.includes(this.keyMap[i][j][1])){
+          if(!valuesArr.includes(this.keyMap[i][j][1])){ // check for removing the duplicate values
             valuesArr.push(this.keyMap[i][j][1])
           }
         }
@@ -70,7 +70,16 @@ ht.set("plum","#DDA0DD")
 ht.set("purple","#DDA0DD")
 ht.set("violet","#DDA0DD")
 
+// console.log('get---',ht.get('plum'))
 
+console.log('All the keys ===> ',ht.keys());
 ht.keys().forEach(function(key){
   console.log(ht.get(key));
 })
+
+
+// console.log('All the Values ===> ',ht.values());
+
+// ht.values().forEach(function(value){
+//   console.log(ht.get(value));
+// })

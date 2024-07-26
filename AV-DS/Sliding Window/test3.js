@@ -51,8 +51,8 @@ const compareMaps = (map1, map2) => {
 };
 
 // Example usage:
-const text = "cbaebabacd";
-const pattern = "abc";
+const text = "aabaabaa";
+const pattern = "aaba";
 
 const result = countAnagramOccurrences(text, pattern);
 console.log(result); // Output: 2 (anagrams: "cba", "bac")
