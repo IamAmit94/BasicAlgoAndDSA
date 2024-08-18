@@ -29,34 +29,34 @@ function shareTheVideo(video) {
    
 }
 
-// importantAction("Amit")
-//   .then((res) => {
-//     console.log(res);
-//     likeTheVideo('js int question').then((res) => {
-//         console.log(res)
-//         shareTheVideo('js int question').then((res) => {
-//             console.log(res)
-//         })
-//     })
-//   })
-//   .catch((err) => console.log(err));
+importantAction("Amit")
+  .then((res) => {
+    console.log(res);
+    likeTheVideo('BEta').then((res) => {
+        console.log(res)
+        shareTheVideo('Gama').then((res) => {
+            console.log(res)
+        })
+    })
+  })
+  .catch((err) => console.log(err));
 
 
 // Improved version for above code: Promise chaining
 
-importantAction("Amit")
-  .then((res) => {
-    console.log(res);
-   return likeTheVideo('js int question')
-  })
-  .then((res) => {
-    console.log(res)
-    return shareTheVideo('js int question')
-  })
-  .then((res) => {
-    console.log(res)    
-  })
-  .catch((err) => console.log(err));
+// importantAction("Amit")
+//   .then((res) => {
+//     console.log(res);
+//    return likeTheVideo('js int question')
+//   })
+//   .then((res) => {
+//     console.log(res)
+//     return shareTheVideo('js int question')
+//   })
+//   .then((res) => {
+//     console.log(res)    
+//   })
+//   .catch((err) => console.log(err));
 
 
 console.log('Stop')

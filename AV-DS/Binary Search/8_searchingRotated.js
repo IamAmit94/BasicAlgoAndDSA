@@ -32,7 +32,7 @@ const searchInRotatedArray = (arr, target) => {
 
         // Check if the right half is sorted
         else {
-            if (arr[mid] < target && target <= arr[right]) {
+            if (arr[right] <= target && target < arr[mid]) {
                 left = mid + 1; // Search in the right half
             } else {
                 right = mid - 1; // Search in the left half

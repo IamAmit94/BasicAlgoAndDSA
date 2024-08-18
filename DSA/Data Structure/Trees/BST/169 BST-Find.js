@@ -10,33 +10,35 @@ class BinarySearchTree {
     constructor(){
         this.root = null;
     }
-    insert(value){
-        var newNode = new Node(value);
-        if(this.root === null){
+    insert(value) {
+        let newNode = new Node(value); // create the new Node
+        if(this.root === null) { // check if the root exist or not
             this.root = newNode;
             return this;
         }
-        var current = this.root;
-        while(true){
-            if(value === current.value) return undefined;
-            if(value < current.value){
-                if(current.left === null){
-                    current.left = newNode;
+        let current  = this.root; // update the root
+        while(true) {
+            if(value === current.value)  return undefined; // check if the value that was inserted was present already or not
+    
+            if(value < current.value) { // check if the value is smaller
+                if(current.left === null) { // check if your left is empty or not
+                    current.left = newNode; 
                     return this;
                 }
-                current = current.left;
-            } else {
-                if(current.right === null){
+                current = current.left // update the left
+            } else {      // If the value is greater
+                if(current.right === null) { // check if the right is empty or not
                     current.right = newNode;
                     return this;
-                } 
-                current = current.right;
+    
+                }
+                current = current.right; // update the right
             }
         }
     }
     find(value){
         if(this.root === null) return false;
-        var current = this.root,
+        let current = this.root,
             found = false;
         while(current && !found){
             if(value < current.value){
@@ -52,7 +54,7 @@ class BinarySearchTree {
     }
     contains(value){
         if(this.root === null) return false;
-        var current = this.root,
+        let current = this.root,
             found = false;
         while(current && !found){
             if(value < current.value){
@@ -72,7 +74,7 @@ class BinarySearchTree {
 //   5     13
 // 2  7  11  16
 
-var tree = new BinarySearchTree();
+let tree = new BinarySearchTree();
 tree.insert(10)
 tree.insert(5)
 tree.insert(13)

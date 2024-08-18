@@ -64,7 +64,7 @@ const button = document.querySelector("button");
 // );
 
 // Q5: How to stop the bubbling and Capturing ?
-// in order to stop the capturing
+// in order to stop the capturing and the way to do this is known as stop propogation
 // div.addEventListener("click",function (e) {
 //     e.stopPropagation();
 //     alert("div")

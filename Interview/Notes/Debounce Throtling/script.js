@@ -12,7 +12,7 @@ const count = document.querySelector(".increment_count");
 var pressedCount = 0;
 var triggerCount = 0;
 
-
+// In order to run the code uncoment the cdn of loadash in the html file
 const debounceCount = _.debounce(() => {
     count.innerHTML = ++triggerCount;
 },800)

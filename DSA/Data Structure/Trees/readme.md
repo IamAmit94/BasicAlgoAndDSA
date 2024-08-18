@@ -140,3 +140,98 @@ DFS (Post-Order)
       3.3 If the node has a right property, call the helper function with the right property on the node
 4. Invoke the helper function with the current variable
 5. Return the array of values
+
+
+
+# BINARY HEAP
+
+## What is Binary HEAP ?
+Very similar to a binary search tree, but with some different rules!
+In a `MaxBinaryHeap`, parent nodes are always larger than child nodes. 
+In a `MinBinaryHeap`, parent nodes are always smaller than child nodes
+
+
+# MAX BINARY HEAP
+1. Each parent has at most two child nodes
+2. The value of each parent node is always greater than its child nodes
+3. In a max Binary Heap the parent is greater than the children, but there are no guarantees between sibling nodes.
+4. A binary heap is as compact as possible. All the children of each node are as full as they can be and left children are filled out first
+
+Tree representaion
+            100
+      19           36
+   17     3     25     1
+2      7
+
+Array representation of tree
+[100,19,36,17,3,25,1,2,7]
+
+
+# MIN BINARY HEAP
+
+            1
+      2            3
+   17    19    36      7
+25  100   
+
+`Why do we need to know this?`
+Binary Heaps are used to implement `Priority Queues`, which are very commonly used data structures
+They are also used quite a bit, with `graph traversal algorithms`
+
+# INSERT PSEUDOCODE
+1. Push the value into the values property on the heap
+2. Bubble the value up to its correct spot!
+
+# INSERT PSEUDOCODE
+1. Push the value into the values property on the heap
+2. Bubble Up:
+      2.1. Create a variable called index which is the length of the values property - 1
+      2.2. Create a variable called parentIndex which is the floor of (index-1)/2
+      2.3. Keep looping as long as the values element at the parentIndex is less than the values element at the child index
+            A. Swap the value of the values element at the parentIndex with the value of the element property at the child index
+            B. Set the index to be the parentIndex, and start over!
+
+
+# SINK DOWN
+The procedure for deleting the root from the heap (effectively extracting the maximum element in a max-heap or the minimum element in a min-heap) and restoring the properties is called down-heap (also known as `bubble-down, percolate-down, sift-down, trickle down, heapify-down, cascade-down, and extract-min/max`).
+
+
+# REMOVING
+1. Swap the first value in the values property with the last one
+2. Pop from the values property, so you can return the value at the end.
+3. Have the new root "sink down" to the correct spot...​
+      3.1. Your parent index starts at 0 (the root)
+      3.2. Find the index of the left child: 2 * index + 1 (make sure its not out of bounds)
+      3.3.Find the index of the right child: 2*index + 2 (make sure its not out of bounds)
+      3.4. If the left or right child is greater than the element...swap. If both left and right children are larger, swap with the largest child.
+      3.5. The child index you swapped to now becomes the new parent index.  
+      3.6. Keep looping and swapping until neither child is larger than the element.
+      3.7. Return the old root!
+
+
+# WHAT IS A PRIORITY QUEUE?
+
+A data structure where each element has a priority. Elements with higher priorities are served before elements with lower priorities.
+
+# OUR PRIORITY QUEUE
+
+1. Write a Min Binary Heap - lower number means higher priority.
+2. Each Node has a val and a priority.  Use the priority to build the heap.
+3. `Enqueue` method accepts a value and priority, makes a new node, and puts it in the right spot based off of its priority.
+4. `Dequeue` method removes root element, returns it, and rearranges heap using priority.
+
+
+# Heapsort
+
+We can sort an array in O(n log n) time and O(1) space by making it a heap!
+
+Make the array a max heap (use maxHeapify)
+Loop over the array, swap the root node with last item in the array
+After swapping each item, run maxHeapify again to find the next root node
+Next loop you'll swap the root node with the second-to-last item in the array and run maxHeapify again.
+Once you've run out of items to swap, you have a sorted array! 
+
+# Big O of Binary Heaps
+Insertion -   O(log N)
+Removal -   O(log N)
+Search -   O(N)

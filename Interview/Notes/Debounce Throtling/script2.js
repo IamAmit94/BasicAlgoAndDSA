@@ -13,7 +13,7 @@ var pressedCount = 0;
 var triggerCount = 0;
 
 const start = new Date().getTime();
-
+// In order to run the code uncoment the cdn of loadash in the html file
 const throttleCount = _.throttle(() => {
     const now = new Date().getTime();
     console.log(now - start)

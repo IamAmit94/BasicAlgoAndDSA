@@ -1,7 +1,7 @@
 // var vs let vs const
 //scope
 
-// VAR is functional scope
+// VAR is functional/gloabal scope
 // LET is block scope
 // CONST is block scope
 /***************************************************************************************** */

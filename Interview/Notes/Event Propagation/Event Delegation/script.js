@@ -1,5 +1,5 @@
 document.querySelector(".products").addEventListener('click', (event) => {
-    // console.log(event
+    // console.log(event)
     console.log(event.target.closest("SPAN")); // to check the closest element
     if(event.target.tagName === "SPAN"){   
         window.location.href += "/" + event.target.className;
