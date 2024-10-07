@@ -2,6 +2,11 @@
 //  The idea is to find the element in the array that is closest to the given target. 
 //  Here's a JavaScript code example:
 
+// [1, 3, 6, 9, 11, 15, 18, 21];
+// 14-1, 14-3, 14-6, 14-9, 14-11, 14-15, 14-18, 14-21
+// 13  , 11,   8,    5,     3,       1,     4,     ,7
+// ANS === > 1 ie 14-15 === 15
+
 const findMinDiffElement = (arr, target) => {
     let left = 0;
     let right = arr.length - 1;

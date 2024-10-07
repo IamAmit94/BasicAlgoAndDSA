@@ -5,7 +5,7 @@ const findNextPositionInInfiniteArray = (arr, target) => {
     // Extend the range until the target is found or surpassed
     while (arr[right] < target) {
         left = right;
-        right *= 2; // Double the range
+        right =right * 2; // Double the range
     }
 
     // Perform binary search in the extended range

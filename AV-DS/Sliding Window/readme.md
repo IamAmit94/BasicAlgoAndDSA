@@ -9,9 +9,10 @@ sliding windows has 2 types as:-
 # FIXED SIZE WINDOW
 1. max/min sub array of size k
 2. Ist -ve in every window size of k
-3. count occurence of anagram
-4. max/min of all subarray of size k
-5. max/min for every window size
+3. 1 st +ve in every window size of k
+4. count occurence of anagram
+5. max/min of all subarray of size k
+6. max/min for every window size
 
 
 # VARIABLE 

@@ -113,6 +113,9 @@ g.addEdge("E","F")
 //        \   /
 //          F
 
+
+
+console.log(g.breadthFirst('A'))
 // QUEUE: []
 // RESULT: [A, B, C, D, E, F]
 

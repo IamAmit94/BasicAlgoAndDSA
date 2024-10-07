@@ -1,41 +1,47 @@
-function longestSubstringWithKUniqueChars(s, k) {
-    if (s.length === 0 || k === 0) {
-        return "";
+// WAP to find the longest substring with k unique character
+
+const longSubstrNoRepChar = (str) => {
+
+    let size = str.length;
+
+    if(size === 0) {
+        return `Empty data`
     }
 
-    let start = 0;
-    let maxLength = 0;
-    let maxSubstring = "";
-    let charCount = new Map();
+    let i = 0, j = 0;
+    let result = 0;
+    let map = new Map()
 
-    for (let end = 0; end < s.length; end++) {
-        let endChar = s[end];
-        charCount.set(endChar, (charCount.get(endChar) || 0) + 1);
+    while(j<size) {
 
-        // Shrink the window until we have exactly k unique characters
-        while (charCount.size > k) {
-            let startChar = s[start];
-            charCount.set(startChar, charCount.get(startChar) - 1);
-            if (charCount.get(startChar) === 0) {
-                charCount.delete(startChar);
+        map.set(str[j], (map.get(str[j]) || 0) + 1)
+
+        // if(map.size < j - i + 1) {
+        //     j++
+        // } else
+         if(map.size === j - i + 1){
+            result = Math.max(result, j-i+1)
+            j++;
+        } else if(map.size < j-i+1) {
+            while(map.size < j-i+1) {
+                map.set(str[i], map.get(str[i]) -1)
+
+                if(map.get(str[i]) === 0) {
+                    map.delete(str[i])
+                }
+                i++
             }
-            start++;
-        }
-
-        // Check if the current window length is greater than the max length found so far
-        if (charCount.size === k) {
-            let currentLength = end - start + 1;
-            if (currentLength > maxLength) {
-                maxLength = currentLength;
-                maxSubstring = s.substring(start, end + 1);
-            }
+            j++
         }
     }
 
-    return maxSubstring;
+    return result;
+
+
 }
 
-// Example usage:
-const str = "abababafsdjvls";
-const k = 2;
-console.log(longestSubstringWithKUniqueChars(str, k)); // Output: "araa"
+ const inputString = "pwwkew";
+ 
+ const result = longSubstrNoRepChar(inputString);
+ console.log(result);
+

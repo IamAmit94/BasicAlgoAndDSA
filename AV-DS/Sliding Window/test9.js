@@ -1,58 +1,44 @@
-// The Minimum Window Substring problem is a classic problem where you are given two strings, s and t, and you need to find the smallest substring in s that contains all the characters in t. This is typically solved using a sliding window technique.
+// Problem Statement: John is at a toy store help him pick maximum number of toys. He can only select in a continuous manner and he can select only two types of toys.
 
 
-const minWindowSubstring = (s, t) => {
-    if (t.length > s.length) {
-        return "Not possible";
-    }
+// Pick Toys | An Interesting Sliding Window Problem
+const pickToyFromWind = (str, k) => {
 
-    const charCountT = new Map();
-    for (const char of t) {
-        charCountT.set(char, (charCountT.get(char) || 0) + 1);
-    }
-    // console.log('charCountT===', charCountT.size);
+    let i = 0, j = 0 ;
+    let result = 0;
+    let size = str.length;
 
-    let required = charCountT.size; //number of unique characters in t.
-    let left = 0;
-    let right = 0;
-    let formed = 0; // tracks how many unique characters in t have been fully matched in the current window.
-    const windowCounts = new Map(); // tracks the counts of characters in the current window.
-    let minLength = Infinity; //  track the smallest window found.
-    let minLeft = 0; //  track the left index of the smallest window found.
-    let minRight = 0;//  track the right index of the smallest window found.
+    let map = new Map()
 
-    while (right < s.length) {
-        let char = s[right];
-        windowCounts.set(char, (windowCounts.get(char) || 0) + 1);
+    while(j<size) {
 
-        if (charCountT.has(char) && windowCounts.get(char) === charCountT.get(char)) {
-            formed++;
-        }
+        map.set(str[j], (map.get(str[j]) || 0) + 1)
+        
 
-        while (left <= right && formed === required) {
-            char = s[left];
+        if(map.size<k) {
+            j++;
+        } else if(map.size === k) {
+            result = Math.max(result, j - i + 1)
+            j++
+        } else if(map.size > k) {
+            while(map.size > k) {
 
-            if (right - left + 1 < minLength) {
-                minLength = right - left + 1;
-                minLeft = left;
-                minRight = right;
+                map.set(str[i], map.get(str[i]) -1)
+                if(map.get(str[i]) === 0) {
+                    map.delete(str[i])
+                }
+                i++
             }
-
-            windowCounts.set(char, windowCounts.get(char) - 1);
-            if (charCountT.has(char) && windowCounts.get(char) < charCountT.get(char)) {
-                formed--;
-            }
-
-            left++;
+            j++
         }
-
-        right++;
+       
     }
+    return result
+}
+// abac  a: 2 b: 1 c: 1
 
-    return minLength === Infinity ? "No Window found!" : s.slice(minLeft, minRight + 1);
-};
 
 // Example usage:
-const s = "ADOBECODEBANC";
-const t = "ABC";
-console.log(minWindowSubstring(s, t)); // Output: "BANC"
+const s = "abaccab";
+const k = 2;
+console.log(pickToyFromWind(s, k)); // Output: "BANC"

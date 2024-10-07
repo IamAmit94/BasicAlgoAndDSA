@@ -1,53 +1,57 @@
-// Count Occurrences Of Anagrams | Sliding Window
-const countAnagramOccurrences = (text, pattern) => {
-    const patternMap = new Map();
-    const textMap = new Map();
+// FIXED WINDOW SIZE  count the occurance of anagram in string
+
+
+const countAnagramOccurrences = (str1, str2) => {
+    let i = 0, j = 0;
+    let result = 0;
     let count = 0;
 
-    // Initialize the frequency map for the pattern
-    for (let char of pattern) {
-        patternMap.set(char, (patternMap.get(char) || 0) + 1);
+    const k = str2.length; // Length of the pattern
+
+    let map = new Map();
+    
+    // Populate the map with the frequency of each character in str2
+    for (let element of str2) {
+        if (!map.has(element)) {
+            map.set(element, 1);
+            count++;
+        } else {
+            map.set(element, map.get(element) + 1);
+        }
     }
+    console.log(map)
 
-    // Initialize the sliding window
-    for (let i = 0; i < text.length; i++) {
-        const char = text[i];
+    while (j < str1.length) {
+        // Decrease the count of the current character in the map
+        if (map.has(str1[j])) {
+            map.set(str1[j], map.get(str1[j]) - 1);
+            if (map.get(str1[j]) === 0) {
+                count--;
+            }
+        }
 
-        // Update the frequency map for the current window in the text
-        textMap.set(char, (textMap.get(char) || 0) + 1);
-
-        // Shrink the window if it exceeds the pattern length
-        if (i >= pattern.length - 1) {
-            // Check if the current window is an anagram of the pattern
-            if (compareMaps(patternMap, textMap)) {
-                count++;
+        // If the window size is smaller than the size of the pattern, move the right end of the window
+        if (j - i + 1 < k) {
+            j++;
+        } else if (j - i + 1 === k) {
+            // When window size matches pattern size
+            if (count === 0) {
+                result++;
             }
 
-            // Move the window by removing the leftmost character
-            const leftChar = text[i - pattern.length + 1];
-            textMap.set(leftChar, textMap.get(leftChar) - 1);
-            if (textMap.get(leftChar) === 0) {
-                textMap.delete(leftChar);
+            // Slide the window to the right
+            if (map.has(str1[i])) {
+                map.set(str1[i], map.get(str1[i]) + 1);
+                if (map.get(str1[i]) === 1) {
+                    count++;
+                }
             }
+            i++;
+            j++;
         }
     }
 
-    return count;
-};
-
-// Helper function to compare two frequency maps
-const compareMaps = (map1, map2) => {
-    if (map1.size !== map2.size) {
-        return false;
-    }
-
-    for (let [key, value] of map1) {
-        if (map2.get(key) !== value) {
-            return false;
-        }
-    }
-
-    return true;
+    return result;
 };
 
 // Example usage:
@@ -55,4 +59,5 @@ const text = "aabaabaa";
 const pattern = "aaba";
 
 const result = countAnagramOccurrences(text, pattern);
-console.log(result); // Output: 2 (anagrams: "cba", "bac")
+console.log(result); // Output: 4 (anagrams: "aaba", "abaa", "baaa", "aaba")
+

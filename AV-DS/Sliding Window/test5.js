@@ -1,44 +1,41 @@
-// Variable Size Sliding Window | Largest Subarray of sum K PART 1
+// VARIABLE SIZE WINDOW Sliding Window | Largest Subarray of sum K PART 1
 
 const largestSubarraySumK = (arr, k) => {
-    let maxLen = 0; // Initialize the maximum length of the subarray with the sum k
-    let currentSum = 0; // Initialize the cumulative sum
-    let startIdx = 0; // Initialize the starting index of the subarray with the sum k
-    const sumMap = new Map(); // Create a map to store the first occurrence of each cumulative sum
-    let subarray = []; // Initialize the subarray to store the result
 
-    for (let i = 0; i < arr.length; i++) {
-        currentSum += arr[i]; // Add the current element to the cumulative sum
-
-        if (currentSum === k) {
-            maxLen = i + 1; // Update maxLen to the current length since currentSum equals k
-            startIdx = 0; // The subarray starts from index 0
-            subarray = arr.slice(startIdx, i + 1); // Extract the subarray from 0 to i
-        }
-
-        if (sumMap.has(currentSum - k)) {
-            let newLen = i - sumMap.get(currentSum - k); // Calculate the length of the new subarray
-            if (newLen > maxLen) { // Check if the new subarray is longer than the previous one
-                maxLen = newLen; // Update maxLen
-                startIdx = sumMap.get(currentSum - k) + 1; // Update startIdx to the new subarray's start
-                subarray = arr.slice(startIdx, i + 1); // Extract the new subarray
-            }
-        }
+  let i = 0,
+    j = 0;
+  let total = 0;
+  let tempResult = 0;
+  let size = arr.length;
 
 
-        if (!sumMap.has(currentSum)) {
-            sumMap.set(currentSum, i); // Store the first occurrence of the current cumulative sum
-        }
+  while (j < size) {
+    total = total + arr[j];
+
+    // sum is less than total
+    if (total < k) {
+      j++;
+    } else if (total === k) { // sum is equal to total
+      tempResult = Math.max(j - i + 1, tempResult);
+      j++;
+    } else if (total > k) { // sum is greater than total
+      while (total > k) {
+        total = total - arr[i];
+        i++;
+      }
+      j++;
     }
+  }
 
-    return subarray; // Return the largest subarray found
+  return tempResult;
 };
 
-
 // Example usage:
-const array = [10, 5, 2, 7, 1, 9];
-const k = 15;
+// const array = [10, 5, 2, 7, 1, 9];
+// const k = 15;
+
+const array = [4,1,1,1,2,3,5];
+const k = 5;
 
 const result = largestSubarraySumK(array, k);
 console.log(result); // Output: [5, 2, 7, 1]
-
