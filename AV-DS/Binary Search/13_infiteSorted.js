@@ -31,3 +31,18 @@ const targetElement = 15;
 const nextPosition = findNextPositionInInfiniteArray(infiniteArray, targetElement);
 
 console.log(`Next position of ${targetElement} in the infinite array: ${nextPosition}`);
+
+
+/**
+1. Initialize the left = 0 and right = 1
+2. Extend the range until the target is found or surpassed
+3. update the left and right pointer as:-
+    left = right
+    right = right * 2
+4. Perform the binary search in the extended range
+    } else if (arr[mid] < target) {
+            left = mid + 1; // Search in the right half
+        } else {
+            right = mid - 1; // Search in the left half
+        }
+ */

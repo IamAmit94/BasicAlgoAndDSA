@@ -1,6 +1,7 @@
 
 
 /**Basic binary search code
+ * For the 1st occurance of the element we always do right = mid - 1;
  * 
  * 
  */
@@ -73,7 +74,7 @@ const firstOccurrenceBs = (arr, element) => {
       } else if (arr[mid] > element) {
           right = mid - 1;
       } else {
-          left = mid + 1
+          left = mid + 1;
       }
   }
       return `${element} is present at 1st occurrence on index ${result}`;

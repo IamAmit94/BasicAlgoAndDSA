@@ -1,3 +1,6 @@
+// For the 2nd occurance of the element we always do left = mid + 1;
+
+
 const lastOccurrenceBs = (arr, element) => {
   
     let left = 0;

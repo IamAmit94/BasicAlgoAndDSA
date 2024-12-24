@@ -1,12 +1,16 @@
-const linearSearch = (array, val) => {
-  for (let i = 0; i < array.length; i++) {
-    console.log(array[i]);
-    if (array[i] === val) return `Found element ${array[i]}`;
+const linearSearch = (array, target) => {
+  let size = array.length;
+  if (!size) return `Empty Array provided !`;
+
+  for (let i = 0; i < size; i++) {
+    if (target === array[i]) return `' ${array[i]} ' Element found at index: " ${i} "`;
   }
-  return `Nothing found `;
+
+  return `'${target}' element is not present in array`;
 };
 
-const data = linearSearch([2, 4, 5, 6, 7, 9, 87], 6);
+const data = linearSearch([2, 4, 5, 6, 7, 9, 87], 16);
+console.log("data------", data);
 
 console.log(`====linearSearch============`, data);
 
