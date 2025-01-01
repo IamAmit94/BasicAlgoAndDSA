@@ -71,25 +71,25 @@ const findFirstRepeatingElement = (arr) => {
 
 // Alternative Approch using MAP
 
-// const findFirstRepeatingElement = (arr) => {
-//     // Create a Map to store the elements as keys
-//     let elementMap = new Map();
+const findFirstRepeatingElement_1 = (arr) => {
+    // Create a Map to store the elements as keys
+    let elementMap = new Map();
   
-//     // Iterate through the array
-//     for (let i = 0; i < arr.length; i++) {
-//       // If the element is already in the Map, it is the first repeating element
-//       if (elementMap.has(arr[i])) {
-//         return arr[i];
-//       }
+    // Iterate through the array
+    for (let i = 0; i < arr.length; i++) {
+      // If the element is already in the Map, it is the first repeating element
+      if (elementMap.has(arr[i])) {
+        return arr[i];
+      }
       
-//       // Otherwise, add the element to the Map
-//       elementMap.set(arr[i], true);
-//       console.log('elem MAp====',elementMap)
-//     }
+      // Otherwise, add the element to the Map
+      elementMap.set(arr[i], true);
+      console.log('elem MAp====',elementMap)
+    }
   
-//     // If no repeating element is found, return -1
-//     return -1;
-//   };
+    // If no repeating element is found, return -1
+    return -1;
+  };
 
     // Example usage:
     console.log(findFirstRepeatingElement([1, 2, 3, 4, 5, 3, 6])); // Output: 3
